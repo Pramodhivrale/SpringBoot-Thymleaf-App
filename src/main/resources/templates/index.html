@@ -2,24 +2,27 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Product From</title>
+<title>Product Form</title>
 </head>
 <body>
-      <p th:text=${msg} />
+    <p th:text="${msg}" />
 
     <form th:action="@{/product}" th:object="${product}" method="post">
         <table>
             <tr>
                 <td>Product Id:</td>
                 <td><input type="text" th:field="*{pid}"/></td>
+                <td th:if="${#fields.hasErrors('pid')}" th:errors="*{pid}">Id is required</td>
             </tr>
             <tr>
                 <td>Product Name:</td>
                 <td><input type="text" th:field="*{pname}"/></td>
+                <td th:if="${#fields.hasErrors('pname')}" th:errors="*{pname}">Name is required</td>
             </tr>
             <tr>
                 <td>Product Price:</td>
-                <td><td><input type="text" th:field="*{price}"/></td> 
+                <td><input type="text" th:field="*{price}"/></td>
+                <td th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price is required</td>
             </tr>
             <tr>
                 <td></td>

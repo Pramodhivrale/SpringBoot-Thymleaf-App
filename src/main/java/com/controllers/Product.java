@@ -1,9 +1,18 @@
 package com.controllers;
 
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 public class Product 
 {
+	@NotNull(message = "Id is mendetory")
 	private Integer pid;
+	
+	@NotNull(message = "pname is mendetory")
+	@Size(message = "max is 3 and min is 8")
 	private String pname;
+	
+	@NotNull(message = "Price is mendotory")
 	private Double price;
 	
 	public Integer getPid() {
